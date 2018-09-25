@@ -8,5 +8,5 @@
   tasks:
   - name: Ansible create file with content example
     win_file:
-    path: C:\Temp\foo.conf
-    state: touch
+		path: C:\Temp\foo.conf
+		state: touch
