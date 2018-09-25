@@ -6,7 +6,7 @@
 
 - hosts: all
   tasks:
-- name: Copy using the 'content' for inline data
-  copy:
+  - name: Ansible create file with content example
+    copy:
     content: '# This file was moved to /etc/other.conf'
-    dest: c:/abc.txt
+    dest: c:/shashank.txt'
