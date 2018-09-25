@@ -8,5 +8,5 @@
   tasks:
   - name: Ansible create file with content example
     copy:
-    content: '# This file was moved to /etc/other.conf'
+    content: 'This file was moved to /etc/other.conf'
     dest: c:/shashank.txt'
