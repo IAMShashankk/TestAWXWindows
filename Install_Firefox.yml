@@ -12,7 +12,7 @@
       state: touch
   - name: Add block in file
     blockinfile:
-      path: C:\abc.txt
+      dest: C:\abc.txt
       block: |
         These lines are added by blockinfile module
         Check out the marker lines
