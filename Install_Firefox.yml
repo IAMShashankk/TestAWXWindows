@@ -7,6 +7,6 @@
 - hosts: all
   tasks:
   - name: Ansible create file with content example
-    copy:
-    content: 'This file was moved to /etc/other.conf'
-    dest: c:/shashank.txt'
+    win_file:
+    path: C:\Temp\foo.conf
+    state: touch
