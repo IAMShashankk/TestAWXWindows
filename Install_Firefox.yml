@@ -8,5 +8,9 @@
   tasks:
   - name: Ansible create file with content example
     win_file:
-      path: C:\Temp\foo.conf
+      path: C:\abc.txt
       state: touch
+  - name: Copy using the 'content' for inline data
+    copy:
+      content: '# This file was moved to /etc/other.conf'
+      dest: C:\abc.txt'
