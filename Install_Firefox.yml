@@ -10,7 +10,10 @@
     win_file:
       path: C:\abc.txt
       state: touch
-  - name: Copy using the 'content' for inline data
-    copy:
-      content: 'This file was moved to /etc/other.conf'
-      dest: C:\abc1.txt
+  - name: Add block in file
+    blockinfile:
+      path: C:\abc.txt
+      block: |
+        These lines are added by blockinfile module
+        Check out the marker lines
+      backup: yes
