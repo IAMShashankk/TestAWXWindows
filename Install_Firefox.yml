@@ -12,3 +12,4 @@
       win_chocolatey:
         name: firefox
         state: present
+	register: result
