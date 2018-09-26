@@ -18,5 +18,5 @@
   - name: Copy file to Win Server
     win_copy:
       #src: /usr/include/python2.7/pyconfig-64.h
-      src: /root/2017-05-25-11.17_7.6.2.0.213.000_CANALEITALIAX2.hzp
+      src: /usr/include/python2.7/Temp.txt
       dest: c:\temp\
