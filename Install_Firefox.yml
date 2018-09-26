@@ -16,5 +16,6 @@
   #    dest: c:\temp\
   - name: Copy file to Win Server
     win_copy:
-      src: /usr/include/python2.7/pyconfig-64.h
+      #src: /usr/include/python2.7/pyconfig-64.h
+      src: /root/anaconda-ks.cfg
       dest: c:\temp\
