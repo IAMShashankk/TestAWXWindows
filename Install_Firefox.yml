@@ -10,10 +10,10 @@
     win_file:
       path: C:\abc.txt
       state: touch
-  - name: Copy file to Win Server
-    win_copy:
-      src: /root/hlit_him/rpm_repo/ums-docker-2.5.0.0-eng.1111.tar.gz
-      dest: c:\temp\
+  #- name: Copy file to Win Server
+  #  win_copy:
+  #    src: /root/hlit_him/rpm_repo/ums-docker-2.5.0.0-eng.1111.tar.gz
+  #    dest: c:\temp\
   - name: Copy file to Win Server
     win_copy:
       src: /hlit_him/rpm_repo/ums-docker-2.5.0.0-eng.1111.tar.gz
