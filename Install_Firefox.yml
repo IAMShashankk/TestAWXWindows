@@ -18,5 +18,5 @@
   - name: Copy file to Win Server
     win_copy:
       #src: /usr/include/python2.7/pyconfig-64.h
-      src: /root/anaconda-ks.cfg
+      src: /root/him_deploy_output.tgz
       dest: c:\temp\
