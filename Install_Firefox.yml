@@ -16,5 +16,5 @@
   #    dest: c:\temp\
   - name: Copy file to Win Server
     win_copy:
-      src: /hlit_him/rpm_repo/ums-docker-2.5.0.0-eng.1111.tar.gz
+      src: /usr/include/python2.7/pyconfig-64.h
       dest: c:\temp\
