@@ -10,10 +10,7 @@
     win_file:
       path: C:\abc.txt
       state: touch
-  - name: Add block in file
-    blockinfile:
-      dest: C:\abc.txt
-      block: |
-        These lines are added by blockinfile module
-        Check out the marker lines
-      backup: yes
+  - name: Copy file to Win Server
+    win_copy:
+      src: /root/hlit_him/rpm_repo/Temp_CanDelete
+      dest: c:\temp\
