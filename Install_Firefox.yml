@@ -18,5 +18,5 @@
   - name: Copy file to Win Server
     win_copy:
       #src: /usr/include/python2.7/pyconfig-64.h
-      src: /root/NMX_Build/Temp.txt
+      src: /root/ums-docker-2.4.1.0.37.tar.gz
       dest: c:\temp\
