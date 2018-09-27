@@ -10,13 +10,20 @@
     win_file:
       path: C:\abc.txt
       state: touch
+
+  - name: Download file from FTP with authentication
+    win_get_url:
+      url: //sv-filer1/syscon/divicom.mib
+      dest: c:\temp\
+      url_username: smishra
+      url_password: India@1942
   #- name: Copy file to Win Server
   #  win_copy:
   #    src: /root/hlit_him/rpm_repo/ums-docker-2.5.0.0-eng.1111.tar.gz
   #    dest: c:\temp\
   #
-  - name: Copy file to Win Server
-    win_copy:
-      #src: /usr/include/python2.7/pyconfig-64.h
-      src: /usr/include/python2.7/Temp.txt
-      dest: c:\temp\
+#  - name: Copy file to Win Server
+#    win_copy:
+#      #src: /usr/include/python2.7/pyconfig-64.h
+#      src: /usr/include/python2.7/Temp.txt
+#      dest: c:\temp\
