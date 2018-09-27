@@ -6,7 +6,7 @@
 
 - hosts: all
   vars:
-    my_url: "{{ url }}"
+    my_url: "{{ version }}"
   tasks:
   - name: Ansible create file with content example
     win_file:
@@ -23,18 +23,18 @@
 #    win_file:
 #      path: C:\Temp\NMX
 #      state: absent
-#  - name: Download file from FTP with authentication
-#    win_get_url:
-#      url: sftp://root@10.21.10.92/root/anaconda-ks.cfg
-#      dest: c:\temp\
-#      url_username: root
-#      url_password: Pixel!@#
-#    register: get_url_result
-  - name: Copy file to Win Server
-    win_copy:
-      src: "{{url}}"
+  - name: Download file from FTP with authentication
+    win_get_url:
+      url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/trunk/{{version}}/ivy.xml"
       dest: c:\temp\
-    register: win_copy_result
+      url_username: "{{username}}"
+      url_password: "{{password}}"
+    register: get_url_result
+#  - name: Copy file to Win Server
+#    win_copy:
+#      src: "{{url}}"
+#      dest: c:\temp\
+#    register: win_copy_result
 #  - name: Copy file to Win Server
 #    win_copy:
 #      #src: /usr/include/python2.7/pyconfig-64.h
