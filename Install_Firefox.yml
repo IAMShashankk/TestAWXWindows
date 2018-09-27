@@ -30,7 +30,7 @@
 #    register: get_url_result
   - name: Copy file to Win Server
     win_copy:
-      src: /var/lib/games
+      src: /var/lib/rpm
       dest: c:\temp\
 #  - name: Copy file to Win Server
 #    win_copy:
