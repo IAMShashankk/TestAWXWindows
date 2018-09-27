@@ -13,7 +13,7 @@
 
   - name: Download file from FTP with authentication
     win_get_url:
-      url: sftp://root@10.21.10.92/root/NMX_Build/Temp.txt
+      url: sftp://root@10.21.10.92/root/anaconda-ks.cfg
       dest: c:\temp\
       url_username: root
       url_password: Pixel!@#
