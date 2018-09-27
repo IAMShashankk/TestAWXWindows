@@ -13,10 +13,10 @@
 
   - name: Download file from FTP with authentication
     win_get_url:
-      url: //sv-filer1/syscon/divicom.mib
+      url: ftp://Indiaqa@ftp.harmonicinc.com/JobSubmissionApp.zip
       dest: c:\temp\
-      url_username: smishra
-      url_password: India@1942
+      url_username: indiaQA
+      url_password: 4qAprsnt
   #- name: Copy file to Win Server
   #  win_copy:
   #    src: /root/hlit_him/rpm_repo/ums-docker-2.5.0.0-eng.1111.tar.gz
