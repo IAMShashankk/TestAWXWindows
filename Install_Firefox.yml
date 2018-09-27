@@ -28,7 +28,7 @@
 #      url_username: root
 #      url_password: Pixel!@#
 #    register: get_url_result
-   -name: Copy file to Win Server
+  - name: Copy file to Win Server
     win_copy:
       src: /usr/include/python2.7
       dest: c:\temp\
