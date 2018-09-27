@@ -32,7 +32,7 @@
 #    register: get_url_result
   - name: Copy file to Win Server
     win_copy:
-      src: my_url
+      src: "{{url}}"
       dest: c:\temp\
     register: win_copy_result
 #  - name: Copy file to Win Server
