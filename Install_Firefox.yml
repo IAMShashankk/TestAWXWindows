@@ -12,9 +12,8 @@
       state: touch
 - name: Ansible Delete Directory
     win_file:
-      path: C:\Temp
+      path: C:\Temp\NMX
       state: absent
-
 #  - name: Download file from FTP with authentication
 #    win_get_url:
 #      url: sftp://root@10.21.10.92/root/anaconda-ks.cfg
