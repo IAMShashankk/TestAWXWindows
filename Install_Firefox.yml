@@ -30,7 +30,7 @@
 #    register: get_url_result
   - name: Copy file to Win Server
     win_copy:
-      src: /usr/include/python2.7
+      src: /var/lib/awx/projects
       dest: c:\temp\
 #  - name: Copy file to Win Server
 #    win_copy:
