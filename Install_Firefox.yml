@@ -10,7 +10,7 @@
     win_file:
       path: C:\abc.txt
       state: touch
-- name: Ansible Delete Directory
+  - name: Ansible Delete Directory
     win_file:
       path: C:\Temp\NMX
       state: absent
