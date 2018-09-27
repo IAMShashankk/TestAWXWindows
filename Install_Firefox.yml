@@ -25,18 +25,17 @@
 #      state: absent
   - name: Download file from FTP with authentication
     win_get_url:
-      url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/8.0.x.0/8.0.0.0.37/nmx_build_output.zip"
-      dest: c:\temp\
-      url_username: ""
-      url_password: ""
-    register: get_url_result
-  - name: Download file from FTP with authentication
-    win_get_url:
-      url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/{{version}}/{{build_number}}/ivy.xml"
+      url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/{{version}}/{{build_number}}/nmx_build_output.zip"
       dest: c:\temp\
       url_username: "{{username}}"
       url_password: "{{password}}"
     register: get_url_result
+    when: get_url_result.status_code == 200
+  - name: Unzip a bz2 (BZip) file
+    win_unzip:
+      src: c:\temp\nmx_build_output.zip
+      dest: C:\temp\NMX
+      creates: C:\temp\NMX
 #  - name: Copy file to Win Server
 #    win_copy:
 #      src: "{{url}}"
