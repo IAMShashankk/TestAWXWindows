@@ -25,6 +25,13 @@
 #      state: absent
   - name: Download file from FTP with authentication
     win_get_url:
+      url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/8.0.x.0/8.0.0.0.37/nmx_build_output.zip"
+      dest: c:\temp\
+      url_username: ""
+      url_password: ""
+    register: get_url_result
+  - name: Download file from FTP with authentication
+    win_get_url:
       url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/{{version}}/{{build_number}}/ivy.xml"
       dest: c:\temp\
       url_username: "{{username}}"
