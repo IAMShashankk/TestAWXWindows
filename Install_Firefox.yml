@@ -32,8 +32,8 @@
   - name: Unzip a bz2 (BZip) file
     win_unzip:
       src: c:\temp\nmx_build_output.zip
-      dest: C:\temp\NMX
-      creates: C:\temp\NMX
+      dest: C:\temp\
+#      creates: C:\temp\NMX
 #  - name: Copy file to Win Server
 #    win_copy:
 #      src: "{{url}}"
