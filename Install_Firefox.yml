@@ -5,6 +5,8 @@
 # https://docs.ansible.com/ansible/win_reboot_module.html
 
 - hosts: all
+  vars:
+    my_url: "{{ url }}"
   tasks:
   - name: Ansible create file with content example
     win_file:
@@ -30,13 +32,9 @@
 #    register: get_url_result
   - name: Copy file to Win Server
     win_copy:
-      src: /var/lib/rpm
+      src: my_url
       dest: c:\temp\
     register: win_copy_result
-    when: win_copy_result.failed == false
-      - name: Copy successfull
-    when: win_copy_result.failed == true
-      - name: Copy un-successfull
 #  - name: Copy file to Win Server
 #    win_copy:
 #      #src: /usr/include/python2.7/pyconfig-64.h
