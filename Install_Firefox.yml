@@ -33,6 +33,7 @@
     win_unzip:
       src: c:\temp\nmx_build_output.zip
       dest: C:\temp\
+      rm:True
 #      creates: C:\temp\NMX
 #  - name: Copy file to Win Server
 #    win_copy:
