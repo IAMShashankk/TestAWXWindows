@@ -13,10 +13,10 @@
 
   - name: Download file from FTP with authentication
     win_get_url:
-      url: ftp://Indiaqa@ftp.harmonicinc.com/HATS_installer.zip
+      url: sftp://root@10.21.10.92/root/NMX_Build/Temp.txt
       dest: c:\temp\
-      url_username: indiaQA
-      url_password: 4qAprsnt
+      url_username: root
+      url_password: Pixel!@#
     register: get_url_result
   #- name: Copy file to Win Server
   #  win_copy:
@@ -27,4 +27,7 @@
 #    win_copy:
 #      #src: /usr/include/python2.7/pyconfig-64.h
 #      src: /usr/include/python2.7/Temp.txt
-#      dest: c:\temp\
+#      dest: c:\temp\ 
+# working url : ftp://Indiaqa@ftp.harmonicinc.com/HATS_installer.zip
+#url_username: indiaQA
+#url_password: 4qAprsnt
