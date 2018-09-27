@@ -30,7 +30,7 @@
 #    register: get_url_result
   - name: Copy file to Win Server
     win_copy:
-      src: /var/lib/awx/NMXBuild
+      src: /var/lib/games
       dest: c:\temp\
 #  - name: Copy file to Win Server
 #    win_copy:
