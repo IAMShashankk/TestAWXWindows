@@ -10,14 +10,18 @@
     win_file:
       path: C:\abc.txt
       state: touch
+- name: Ansible Delete Directory
+    win_file:
+      path: C:\Temp
+      state: absent
 
-  - name: Download file from FTP with authentication
-    win_get_url:
-      url: sftp://root@10.21.10.92/root/anaconda-ks.cfg
-      dest: c:\temp\
-      url_username: root
-      url_password: Pixel!@#
-    register: get_url_result
+#  - name: Download file from FTP with authentication
+#    win_get_url:
+#      url: sftp://root@10.21.10.92/root/anaconda-ks.cfg
+#      dest: c:\temp\
+#      url_username: root
+#      url_password: Pixel!@#
+#    register: get_url_result
   #- name: Copy file to Win Server
   #  win_copy:
   #    src: /root/hlit_him/rpm_repo/ums-docker-2.5.0.0-eng.1111.tar.gz
