@@ -29,7 +29,7 @@
       dest: c:\temp\
       url_username: "{{username}}"
       url_password: "{{password}}"
-  - name: Unzip a bz2 (BZip) file
+  - name: Unzip the NMX folder
     win_unzip:
       src: c:\temp\nmx_build_output.zip
       dest: C:\temp\
