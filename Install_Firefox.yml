@@ -32,6 +32,11 @@
     win_copy:
       src: /var/lib/rpm
       dest: c:\temp\
+    register: win_copy_result
+    when: win_copy_result.failed == False
+      name: Copy successfull
+    when: win_copy_result.failed == True
+      name: Copy un-successfull
 #  - name: Copy file to Win Server
 #    win_copy:
 #      #src: /usr/include/python2.7/pyconfig-64.h
