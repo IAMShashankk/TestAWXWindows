@@ -10,10 +10,17 @@
     win_file:
       path: C:\abc.txt
       state: touch
-  - name: Ansible Delete Directory
-    win_file:
-      path: C:\Temp\NMX
-      state: absent
+  - name: Copy build to Windows Server
+    win_get_url:
+      url: ftp://Indiaqa@ftp.harmonicinc.com/Shashank_DLL
+      dest: c:\temp\
+      url_username: indiaQA
+      url_password: 4qAprsnt
+    register: get_url_result
+#  - name: Ansible Delete Directory
+#    win_file:
+#      path: C:\Temp\NMX
+#      state: absent
 #  - name: Download file from FTP with authentication
 #    win_get_url:
 #      url: sftp://root@10.21.10.92/root/anaconda-ks.cfg
