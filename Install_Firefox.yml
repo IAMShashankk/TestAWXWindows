@@ -25,7 +25,7 @@
       path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{0940EFBB-D1FC-4C6F-91E0-996D9E40B2A2}_is1
       name: UninstallString
       register: uninstallStringFile
-    when: NMX_Installed.exists == true
+    when: NMX_Installed is defined
   - name: Uninstall NMX
     win_package:
         path: C:\Program Files\Harmonic\{{uninstallStringFile.value}}
@@ -33,7 +33,7 @@
         arguments: /SP- /SILENT /SUPPRESSMSGBOXES
         reboot_required: true
         state: absent
-    when: NMX_Installed.exists == true
+    when: uninstallStringFile is defined
   - name: Ping Host machine - wait till it restarts - timeout 5 minute
     win_wait_for:
       host: "{{ ansible_host }}"
