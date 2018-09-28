@@ -53,3 +53,7 @@
       arguments: /SP- /SILENT /SUPPRESSMSGBOXES /Type=ClientAndServer /NDDS_DOMAINID="{{SiteID}}"
       reboot_required: true
       state: present
+  - name: Delete the NMX folder
+    win_file:
+    path: C:\Temp\nmx
+    state: absent
