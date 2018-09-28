@@ -5,14 +5,7 @@
 # https://docs.ansible.com/ansible/win_reboot_module.html
 - hosts: all
   tasks:
-  - name: Download file from FTP with authentication
-    win_reg_stat:
-      path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion
-      name: CommonFilesDir
-    register: common_files_dir
-  - name: Download file from FTP with authentication
-    win_get_url:
-      url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/{{common_files_dir.value}}/{{build_number}}/nmx_build_output.zip"
-      dest: c:\temp\
-      url_username: "{{username}}"
-      url_password: "{{password}}"
+  - name: Ansible create file with content example
+    win_file:
+      path: C:\Temp\NMX-*\abc-*.txt
+      state: absent
