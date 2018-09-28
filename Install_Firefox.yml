@@ -6,57 +6,15 @@
 
 - hosts: all
   tasks:
-  - name: Download file from FTP with authentication
-    win_get_url:
-      url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/{{version}}/{{build_number}}/nmx_build_output.zip"
-      dest: c:\temp\
-      url_username: "{{username}}"
-      url_password: "{{password}}"
-  - name: Unzip the NMX folder
-    win_unzip:
-      src: c:\temp\nmx_build_output.zip
-      dest: C:\temp\
-      rm: True
-      creates: C:\temp\NMX
-  - name: Get active catalog name
-    win_reg_stat:
-      path: HKLM:\SOFTWARE\Harmonic\MEM
-      name: ServiceSQLServerDSN
-      register: ActiveCatalog
-  - name: Create NMXInstall.ini file
-    win_copy:
-      dest: C:\NMXInstall.ini
-      content: |
-        [Option]
-        SiteID={{SiteID}}
-        SQLServerName=localhost
-        Catalog= ActiveCatalog.value
-        SQLServerBackupDir=C:\databasebkup
-  - name: Create NMXUninstall.ini file
-    win_copy:
-      dest: C:\NMXUninstall.ini
-      content: |
-        ! QuickInstall, 0 - Proceed with uninstallation, 1 - Skip uninstallation.
-        ! 1 Silent Mode True, Any other value  - False.
-        [Mode]
-        Silent=1
-        QuickInstall=1
-  - name: check if NMX is already installed
-    win_reg_stat:
-      path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{0940EFBB-D1FC-4C6F-91E0-996D9E40B2A2}_is1
-      register: NMX_Installed
-  - name: Uninstall NMX
-    win_package:
-        path: C:\Program Files\Harmonic\unins001.exe
-        product_id: '{0940EFBB-D1FC-4C6F-91E0-996D9E40B2A2}_is1'
-        arguments: /SP- /SILENT /SUPPRESSMSGBOXES
-        reboot_required: true
-        state: absent
-        when: NMX_Installed.exists == true
-  - name: Install NMX
-    win_package:
-      path: C:\Temp\nmx\{{build_number}}-A\Install_NMX_{{build_number}}-A.exe
-      product_id: '{0940EFBB-D1FC-4C6F-91E0-996D9E40B2A2}_is1'
-      arguments: /SP- /SILENT /SUPPRESSMSGBOXES /Type=ClientAndServer /NDDS_DOMAINID="{{SiteID}}"
-      reboot_required: true
-      state: present
+  - name: Ansible create file with content example
+    win_file:
+      path: C:\shanky.txt
+      state: touch
+  - name: Restart machine
+    win_reboot:
+      shutdown_timeout_sec: 3600
+      reboot_timeout_sec: 3600
+- name: Again create a file
+    win_file:
+      path: C:\shashank.txt
+      state: touch
