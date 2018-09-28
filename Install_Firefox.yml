@@ -33,11 +33,6 @@
         reboot_required: true
         state: absent
         when: NMX_Installed.exists == true
-    - name: Ensure machine at {{ get_ip }} SSH port is listening
-      wait_for:
-        host: "{{ get_ip }}"
-        port: 22                # SSH port
-        delay: 60               # wait 1 minute before trying
   - name: Ping Host machine - wait till it restarts - timeout 5 minute
     win_wait_for:
       host: "{{ ansible_host }}"
