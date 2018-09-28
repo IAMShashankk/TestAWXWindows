@@ -12,7 +12,7 @@
     register: common_files_dir
   - name: Download file from FTP with authentication
     win_get_url:
-      url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/{{{{common_files_dir.value}}}}/{{build_number}}/nmx_build_output.zip"
+      url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/{{common_files_dir.value}}/{{build_number}}/nmx_build_output.zip"
       dest: c:\temp\
       url_username: "{{username}}"
       url_password: "{{password}}"
