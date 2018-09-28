@@ -13,5 +13,5 @@
     register: resultFile
   - name: Ansible create file with content example
     win_file:
-      path: "{{resultFile.path}}"
+      path: "{{resultFile[0].path}}"
       state: absent
