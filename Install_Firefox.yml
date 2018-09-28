@@ -6,7 +6,7 @@
 - hosts: all
   tasks:
   - name: Ping ip
-    wait_for:
+    win_wait_for:
       host: "{{ ansible_host }}"
       port: "{{ansible_port}}" #SSH Port
       delay: 60 # wait 1 minute before trying
