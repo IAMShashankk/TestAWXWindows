@@ -11,8 +11,8 @@
       name: CommonFilesDir
     register: common_files_dir
   - debug:
-    msg: common_files_dir.value
+    var: common_files_dir.value
   - debug:
-    msg: common_files_dir
+    var: common_files_dir
   - debug:
-    msg: CommonFilesDir
+    var: CommonFilesDir
