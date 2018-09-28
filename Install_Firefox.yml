@@ -7,11 +7,11 @@
   tasks:
   - name: Ansible find file
     win_find:
-      paths: C:\temp\nmx
-      patterns: ['*.exe']
+      paths: C:\temp\NMX-A
+      patterns: ['*.txt']
       recurse: True
     register: resultFile
   - name: Ansible create file with content example
     win_file:
-      path: "{{resultFile.value}}"
+      path: "{{resultFile.path}}"
       state: absent
