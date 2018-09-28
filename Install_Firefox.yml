@@ -12,6 +12,24 @@
     win_file:
       path: C:\abc.txt
       state: touch
+  - name: Create NMXInstall.ini file
+    win_copy:
+      dest: C:\NMXInstall.ini
+      content: |
+        [Option]
+        SiteID={{SiteID}}
+        SQLServerName=localhost
+        Catalog= ActiveCatalog.value
+        SQLServerBackupDir=C:\databasebkup
+  - name: Create NMXUninstall.ini file
+    win_copy:
+      dest: C:\NMXUninstall.ini
+      content: |
+        ! QuickInstall, 0 - Proceed with uninstallation, 1 - Skip uninstallation.
+        ! 1 Silent Mode True, Any other value  - False.
+        [Mode]
+        Silent=1
+        QuickInstall=1
 #  - name: Copy build to Windows Server
 #    win_get_url:
 #      url: ftp://Indiaqa@ftp.harmonicinc.com/Shashank_DLL
@@ -23,17 +41,17 @@
 #    win_file:
 #      path: C:\Temp\NMX
 #      state: absent
-  - name: Download file from FTP with authentication
-    win_get_url:
-      url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/{{version}}/{{build_number}}/nmx_build_output.zip"
-      dest: c:\temp\
-      url_username: "{{username}}"
-      url_password: "{{password}}"
-  - name: Unzip the NMX folder
-    win_unzip:
-      src: c:\temp\nmx_build_output.zip
-      dest: C:\temp\
-      rm: True
+#  - name: Download file from FTP with authentication
+#    win_get_url:
+#      url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/{{version}}/{{build_number}}/nmx_build_output.zip"
+#      dest: c:\temp\
+#      url_username: "{{username}}"
+#      url_password: "{{password}}"
+#  - name: Unzip the NMX folder
+#    win_unzip:
+#      src: c:\temp\nmx_build_output.zip
+#      dest: C:\temp\
+#      rm: True
 #      creates: C:\temp\NMX
 #  - name: Copy file to Win Server
 #    win_copy:
