@@ -5,13 +5,14 @@
 # https://docs.ansible.com/ansible/win_reboot_module.html
 - hosts: all
   tasks:
-  - name: Ansible find file
+  - name: Ping ip
+    wait_for:
+      host: "{{ ansible_host }}"
+      port: "{{ansible_port}}" #SSH Port
+      delay: 60 # wait 1 minute before trying
+  - name: Find the installation file
     win_find:
-      paths: C:\temp\NMX-A
-      patterns: ['*.txt']
+      paths: C:\Temp\nmx
+      patterns: ['*.exe']
       recurse: True
     register: resultFile
-  - name: Ansible create file with content example
-    win_file:
-      path: "{{resultFile.files[0].path}}"
-      state: absent
