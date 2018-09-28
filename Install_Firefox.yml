@@ -9,7 +9,8 @@
     win_wait_for:
       host: "{{ ansible_host }}"
       port: "{{ansible_port}}" #SSH Port
-      delay: 60 # wait 1 minute before trying
+      state: started
+      timeout: 300 #wait for 5 minute to bring machine up
   - name: Find the installation file
     win_find:
       paths: C:\Temp\nmx
