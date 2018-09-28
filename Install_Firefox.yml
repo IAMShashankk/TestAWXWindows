@@ -5,7 +5,13 @@
 # https://docs.ansible.com/ansible/win_reboot_module.html
 - hosts: all
   tasks:
+  - name: Ansible find file
+    win_find:
+      paths: C:\temp\nmx
+      patterns: ['*.exe']
+      recurse: True
+    register: resultFile
   - name: Ansible create file with content example
     win_file:
-      path: C:\Temp\NMX-*\abc-*.txt
+      path: "{{resultFile.value}}"
       state: absent
