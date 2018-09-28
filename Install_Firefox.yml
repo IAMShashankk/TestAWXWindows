@@ -14,4 +14,4 @@
       path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{0940EFBB-D1FC-4C6F-91E0-996D9E40B2A2}_is1
       name: UninstallString
       register: uninstallStringFile
-      when: NMX_Installed is defined
+    when: NMX_Installed is defined and NMX_Installed.exists==true
