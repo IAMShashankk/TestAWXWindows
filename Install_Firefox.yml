@@ -6,32 +6,13 @@
 - hosts: all
   tasks:
   - name: Download file from FTP with authentication
-    win_get_url:
-      url: "http://hivy/artifactory/ivy-repos/harmonic/nmx/{{version}}/{{build_number}}/nmx_build_output.zip"
-      dest: c:\temp\
-      url_username: "{{username}}"
-      url_password: "{{password}}"
-  - name: Unzip the NMX folder
-    win_unzip:
-      src: c:\temp\nmx_build_output.zip
-      dest: C:\temp\
-      rm: True
-  - name: check if NMX is already installed
     win_reg_stat:
-      path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{0940EFBB-D1FC-4C6F-91E0-996D9E40B2A2}_is1
-      register: NMX_Installed
-  - name: Uninstall NMX
-    win_package:
-        path: C:\Program Files\Harmonic\unins002.exe
-        product_id: '{0940EFBB-D1FC-4C6F-91E0-996D9E40B2A2}_is1'
-        arguments: /SP- /SILENT /SUPPRESSMSGBOXES
-        reboot_required: true
-        state: absent
-        when: NMX_Installed.exists == true
-  - name: Install NMX
-    win_package:
-      path: C:\Temp\nmx\{{build_number}}-A\Install_NMX_{{build_number}}-A.exe
-      product_id: '{0940EFBB-D1FC-4C6F-91E0-996D9E40B2A2}_is1'
-      arguments: /SP- /SILENT /SUPPRESSMSGBOXES /Type=ClientAndServer /NDDS_DOMAINID="{{SiteID}}"
-      reboot_required: true
-      state: present
+      path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion
+      name: CommonFilesDir
+    register: common_files_dir
+  - debug:
+    msg: common_files_dir.value
+  - debug:
+    msg: common_files_dir
+  - debug:
+    msg: CommonFilesDir
