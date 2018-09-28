@@ -11,6 +11,6 @@
       name: CommonFilesDir
       register: common_files_dir
   - debug:
-    var: {{common_files_dir.value}}
+    var: "value is {{common_files_dir.value}}"
   - debug:
-    var: {{common_files_dir}}
+    var: "all value {{common_files_dir}}"
