@@ -16,14 +16,6 @@
       src: c:\temp\nmx_build_output.zip
       dest: C:\temp\
       rm: True
-    win_copy:
-      dest: C:\NMXUninstall.ini
-      content: |
-        ! QuickInstall, 0 - Proceed with uninstallation, 1 - Skip uninstallation.
-        ! 1 Silent Mode True, Any other value  - False.
-        [Mode]
-        Silent=1
-        QuickInstall=1
   - name: check if NMX is already installed
     win_reg_stat:
       path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{0940EFBB-D1FC-4C6F-91E0-996D9E40B2A2}_is1
