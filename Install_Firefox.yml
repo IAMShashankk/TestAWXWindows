@@ -24,7 +24,7 @@
     win_package:
         path: C:\Program Files\Harmonic\unins001.exe
         product_id: '{0940EFBB-D1FC-4C6F-91E0-996D9E40B2A2}_is1'
-        arguments: /SP- /SILENT
+        arguments: /SP- /SILENT /SUPPRESSMSGBOXES
         reboot_required: true
         state: absent
         when: NMX_Installed.exists == true
@@ -32,6 +32,6 @@
     win_package:
       path: C:\Temp\nmx\{{build_number}}-A\Install_NMX_{{build_number}}-A.exe
       product_id: '{0940EFBB-D1FC-4C6F-91E0-996D9E40B2A2}_is1'
-      arguments: /SP- /SILENT /Type=ClientAndServer /NDDS_DOMAINID="{{SiteID}}"
+      arguments: /SP- /SILENT /SUPPRESSMSGBOXES /Type=ClientAndServer /NDDS_DOMAINID="{{SiteID}}"
       reboot_required: true
       state: present
