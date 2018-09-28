@@ -9,10 +9,10 @@
     win_reg_stat:
       path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion
       name: CommonFilesDir
-    register: common_files_dir
+      register: common_files_dir
   - debug:
-    var: common_files_dir.value
+    var: common_files_dir[value]
+  - debug:
+    var: CommonFilesDir[value]
   - debug:
     var: common_files_dir
-  - debug:
-    var: CommonFilesDir
