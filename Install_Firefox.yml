@@ -55,5 +55,5 @@
       state: present
   - name: Delete the NMX folder
     win_file:
-    path: C:\Temp\nmx
-    state: absent
+      path: C:\Temp\nmx
+      state: absent
