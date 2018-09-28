@@ -53,4 +53,4 @@
       arguments: /SP- /SILENT /SUPPRESSMSGBOXES /Type=ClientAndServer /NDDS_DOMAINID="{{SiteID}}"
       reboot_required: true
       state: present
-      expected_return_code: [5]
+      expected_return_code: [0, 5] #override return code 5
